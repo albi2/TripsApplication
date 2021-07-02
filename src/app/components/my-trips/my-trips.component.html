@@ -1,0 +1,26 @@
+<div  *ngIf="!errMessage" class="container">
+    <div  class="trips__container">
+        <div *ngFor="let trip of trips" class="container__trip">
+                <app-trip-card (tripDeleted)="deleteTrip($event)"
+                (enableEdit)="activateEditTrip($event)" [trip]="trip"></app-trip-card>
+        </div>
+        <div class="trips__paginator">
+            <mat-paginator
+            class="paginator"
+            [length]="totalCount"
+            [pageIndex]="page"
+            [pageSize]="size"
+            [pageSizeOptions]="[5,10,20]"
+            (page)="loadTrips($event)">
+            </mat-paginator>
+        </div>
+    </div>
+    <div class="container__add_edit_trip">
+        <app-add-edit-trip (onTripAdded)="addTripToView($event)"
+        (onTripUpdated)="updateTrip($event)"></app-add-edit-trip>
+    </div>
+</div>
+
+<div class="error" *ngIf="errMessage">
+    {{errMessage}}
+</div>

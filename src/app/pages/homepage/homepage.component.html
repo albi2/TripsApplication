@@ -1,0 +1,21 @@
+<div class="header" >
+    <div class="title">
+        <h1>Trip Manager.</h1>
+        <span>Manage your trips on different destinations and add different flights for your trips.</span>
+        <button (click)="scroll(target)">Get Started</button>
+    </div>
+
+    <div class="leftBigCircle"></div>
+    <div class="leftSmallCircle"></div>
+    <div class="rightBigCircle"></div>
+    <div class="rightSmallCircle"></div>
+    <div class="middlePurple"></div>
+    
+</div>
+<div class="container" [class.signupMode]="signupMode">
+    <div  #target  class="forms-container">
+        <app-sign-in-up  [signupMode]="signupMode"></app-sign-in-up>
+    </div>
+    <app-panels (toggleMode)="toggle($event)" [signupMode]="signupMode"></app-panels>
+</div>
+

@@ -1,0 +1,144 @@
+.users__container{
+    width: 100%;
+    padding: 20px;
+
+    .mat-table {
+        width: 100%;
+    }
+
+    .mat-row{
+        cursor: pointer;
+        margin-top: 10px;
+        &:hover{
+            background: rgba(175, 175, 175, 0.04);
+        }
+    }
+    
+    .request_cell {
+        text-align: center;
+    }
+
+    .east {
+        font-size:  0.8rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        color:rgba(0, 0, 0, 0.8);
+
+        .icon {
+            font-size: 1.2rem;
+            margin-left: 4px;
+            margin-top: 5px;
+        }
+    }
+
+    .mat-chip {
+        background-color: #e8dff0;
+        color: #562ff5;
+    }
+}
+
+.section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .section__link {
+    font-size: 1.2rem;
+  }
+  
+  .section__link:focus {
+    outline: none;
+    color: var(--blue-violet);
+  }
+  
+  .section__button {
+    padding: 0.85rem 2rem;
+    margin: 0 0.6rem;
+    background-color: var(--alabaster);
+    font-size: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .section__button--painted {
+    background-color: var(--dune);
+  }
+  
+  .section__button svg {
+    width: 1rem;
+  }
+  
+  .section__button--painted svg path {
+    fill: var(--alabaster);
+  }
+  
+  .section__button--painted:focus {
+    box-shadow: 0 0 0 3px var(--dune-rgba-5);
+  }
+  
+  @media (hover: hover) {
+    .section__button:hover {
+      background-color: var(--true-v);
+    }
+  
+    .section__button:hover svg path {
+      fill: var(--alabaster);
+    }
+  }
+  
+  @media (max-width: 1800px) {
+    .section__link {
+      font-size: 1rem;
+    }
+  
+    .section__button {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  
+  @media (max-width: 1400px) {
+    .section__button {
+      padding: 0.65rem 1.25rem;
+    }
+  
+    .section__button svg {
+      width: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .section:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  
+    .section__header {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section__button {
+      padding: 0.6rem;
+      margin: 0 0.3rem;
+    }
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  .trips__paginator {
+    margin-top: 20px;
+    width: 400px;
+    margin-left: auto;
+  }
+
+  .divider {
+    margin-bottom: 15px;
+    height: 2px;
+  }

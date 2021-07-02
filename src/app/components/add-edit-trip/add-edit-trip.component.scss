@@ -1,0 +1,24 @@
+
+.add-trip{
+    border-radius: 10px;
+    position: fixed;
+    top: calc(var(--header-height)+5rem);
+    right: 3rem;
+    width: 30%;
+    max-height: 87vh;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0.3em;
+    
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+      }
+
+    &::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    }
+}

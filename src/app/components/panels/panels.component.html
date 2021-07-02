@@ -1,0 +1,19 @@
+<div class="panels-container" [class.signupMode]="signupMode" >
+    <div  class="panel left-panel">
+        <div class="content">
+            <h3>New here ?</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+            <button (click)="toggle(true)" class="btn transparent" id="sign-up-btn">Sign Up</button>
+        </div>
+        
+        <img class="image" src="assets/svg/sign_up.svg"/>
+    </div>
+    <div    class="panel right-panel">
+        <div class="content">
+            <h3>Already signed in ?</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+            <button (click)="toggle(true)"  class="btn transparent" id="sign-in-btn">Sign In</button>
+        </div>
+        <img class="image inImg" src="assets/svg/sign_in.svg"/>
+    </div>
+</div>

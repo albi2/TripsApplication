@@ -1,0 +1,7 @@
+<div class="hold">
+  <input (change)="changeStatus()" type="checkbox" id="toggle-{{trip.id}}" [formControl]="approved"/>
+  <!-- Relate label to specific checkbox-->
+  <label for="toggle-{{trip.id}}" class="toggleWrapper">
+      <div class="toggle"></div>
+    </label>
+</div>

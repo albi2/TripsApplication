@@ -1,0 +1,189 @@
+* {
+    box-sizing: border-box ;
+}
+button {
+    outline: none;
+    border: none;
+    background-color: #4a60b7;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s 0.1s ease-in;
+}
+
+button:hover {
+    background-color: #394b91;
+}
+
+.inImg {
+    margin-top: 100px;
+}
+
+.panels-container {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    text-align: center;
+    z-index: 7;
+    overflow: hidden;
+}
+
+.left-panel {
+    padding: 3rem  17% 5rem 12%;
+    pointer-events: all;
+}
+
+.right-panel {
+    /* Prevent clicks on panel */
+    pointer-events: none;
+    padding: 3rem  17% 5rem 12%;
+}
+
+.panel .content {
+    color: #fff;
+    transition: .9s .6s ease-in-out;
+}
+
+.panel h3 {
+    font-weight: 600;
+    line-height: 1;
+    font-size: 1.5rem;
+}
+
+.panel p {
+    font-size: 0.95rem;
+
+}
+
+.btn.transparent {
+    margin: 0;
+    background: none;
+    border: 2px solid #fff;
+    width: 130px;
+    height: 41px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.image {
+    width: 100%;
+    transition: .9s .7s ease-in-out;
+}
+
+.right-panel .content, .right-panel .image {
+    transform: translateX(1200px);
+}
+
+
+.panels-container.signupMode .left-panel .image,
+.panels-container.signupMode  .left-panel .content {
+    transform: translate(-1200px);
+}
+
+.panels-container.signupMode .right-panel .image,
+.panels-container.signupMode  .right-panel .content  {
+    transform: translateX(0);
+}
+
+.panels-container.signupMode .left-panel{
+    pointer-events: none;
+}
+
+.panels-container.signupMode .right-panel {
+    pointer-events: all;
+}
+
+@media (max-width: 870px) {
+    .panels-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+
+    .panel {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2.5rem 8%;
+        grid-column: 1 / 2;
+    }
+
+    .right-panel {
+        grid-row: 3 / 4;
+      }
+
+    .left-panel {
+        grid-row: 1 / 2;
+      }
+
+    .image {
+    width: 200px;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.6s;
+    }
+
+    .panel .content {
+        padding-right: 15%;
+        transition: transform 0.9s ease-in-out;
+        transition-delay: 0.8s;
+    }
+    .right-panel .content, .right-panel .image {
+        transform: translateX(0px);
+    }
+
+    .panel h3 {
+        font-size: 1.2rem;
+    }
+    
+    .panel p {
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+    }
+
+    .btn.transparent {
+        width: 110px;
+        height: 35px;
+        font-size: 0.7rem;
+    }
+
+    
+    .panels-container.signupMode .left-panel .image,
+    .panels-container.signupMode .left-panel .content {
+      transform: translateY(-300px);
+    }
+
+    
+    .panels-container.signupMode .right-panel .image,
+    .panels-container.signupMode .right-panel .content {
+      transform: translateY(0px);
+    }
+
+    .right-panel .image,
+    .right-panel .content {
+      transform: translateY(300px);
+    }
+}
+
+@media (max-width: 570px) {
+    .image {
+        display: none;
+      }
+      .panel .content {
+        padding: 0.5rem 1rem;
+      }
+}

@@ -1,0 +1,32 @@
+	<div class="course">
+		<div class="course-preview">
+			<h6>Trip</h6>
+			<h2>{{trip.fromCountry}} - {{trip.toCountry}}</h2>
+			<a href="#">View trip details <i class="fas fa-chevron-right"></i></a>
+		</div>
+		<div class="course-info">
+			<div class="progress-container">
+				  <button class="more_btn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu" >
+                    <button mat-menu-item (click)="enableEditing()">
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteTrip(trip.id)">
+                      <mat-icon>clear</mat-icon>
+                      <span>Remove</span>
+                    </button>
+                  </mat-menu>
+			</div>
+			<h6>Departure Date: {{trip.departureDate | date}}</h6>
+            <h6>Arrival Date: {{trip.arrivalDate | date}}</h6>
+			<p class="description">{{trip.description}}</p>
+			<mat-chip-list class="status">
+                <mat-chip class="chip">
+                  {{ trip.status }}
+                </mat-chip>
+              </mat-chip-list>
+		</div>
+	</div>

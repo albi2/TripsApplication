@@ -1,0 +1,17 @@
+<div class="myprofile__page_container" id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle" (click)="toggleNavbar()">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+        <div class="icon">
+            <i class='bx bx-atom' ></i>
+        </div>
+        <div class="header__img">
+            <img src="assets/img/perfil.jpg" alt="">
+        </div>
+    </header>
+    <app-sidebar></app-sidebar>
+    <div class="content">  
+        <router-outlet></router-outlet>
+    </div>
+</div>

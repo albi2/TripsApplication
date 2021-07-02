@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    background-color: white;
+    height: 100vh;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    z-index: 10;
+    position: absolute;
+    top: 170px;
+    width: 200px;
+    height: 300px;
+    left: 260px;
+}
+
+.title h1 {
+    margin: 20px 0 10px 0 ;
+    font-size: 2.7rem;
+    line-height: 1;
+    height: fit-content;
+    font-family: Dela Gothic One;
+}
+
+.title span {
+    color: #636363;
+}
+
+.buttons {
+    z-index: 10;
+}
+
+.leftBigCircle {
+    background-color:#FFDD73;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: -50px;
+    top: -100px;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.leftSmallCircle {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 120px;
+    top:230px;
+    background-color: #FFDD73;
+    border-radius: 50%;
+}
+/*#4a60b7*/
+
+.rightBigCircle {
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    right: -200px;
+    top: -300px;
+    border-radius: 50%;
+    background-color: #FFDD73;
+    transition: 0.8s ease-in-out;
+}
+
+.title button {
+    outline: none;
+    border: none;
+    display: block;
+    background-color: #4a60b7;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s 0.1s ease-in;
+}
+
+.title button:hover {
+    background-color: #394b91;
+}
+
+
+.rightSmallCircle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFDD73;
+    top: 500px; 
+    right: 600px;
+    transition: 0.8s 0.1s ease-in-out;
+
+}
+
+.middlePurple {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4a60b7;
+    top: 540px; 
+    right: 700px;
+    transition: 0.8s 0.2s ease-in-out;
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0;
+}
+
+.container:before {
+    content: '';
+    position: absolute;
+    width: 3000px;
+    height: 2000px;
+    border-radius: 50%;
+    background: linear-gradient(-45deg,#6c7ec4,#4a60b7);
+    top: -10%;
+    right: 48%;
+    transform: translateY(-47%);
+    z-index: 6;
+    transition: 1.8s ease-in-out;
+}
+
+.forms-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+.container.signupMode:before {
+    transform: translate(100%, -50%);
+    right: 55%;
+}
+
+@media (max-width: 1200px) {
+    .rightBigCircle, .rightSmallCircle, .middlePurple {
+        transform: translateX(400px);
+    }
+}
+
+@media (max-width: 560px) {
+    .rightBigCircle, .rightSmallCircle, .middlePurple {
+        display: none;
+    }
+
+    .title{
+        left: 100px;
+        top: 300px;
+    }
+
+    .header{
+        height: 900px;
+    }
+}
+
+@media (max-width: 870px) {
+    .container {
+        min-height: 800px;
+        height: 100vw;
+    }
+
+    .container:before {
+        width: 1500px;
+        height: 1500px;
+        transform: translateX(-50%);
+        left: 30%;
+        bottom: 68%;
+        right: initial;
+        top: initial;
+        transition: 2s ease-in-out;
+    }
+
+    .container.signupMode:before {
+        transform: translate(-50%, 100%);
+        bottom: 28%;
+        right: initial;
+    }
+}
+
+@media (max-width: 570px) {
+    .container {
+        padding: 1.5rem;
+      }
+    
+      .container:before {
+        bottom: 72%;
+        left: 50%;
+      }
+    
+      .container.signupMode:before {
+        bottom: 28%;
+        left: 50%;
+      }
+}

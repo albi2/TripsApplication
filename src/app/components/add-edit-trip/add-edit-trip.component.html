@@ -1,0 +1,129 @@
+<div class="add-trip">
+    <mat-vertical-stepper class="add-course" [linear]="isLinear" #stepper>
+        <!-- <mat-step [stepControl]="courseIdGroup">
+            <form [formGroup]="courseIdGroup">
+                <ng-template matStepLabel>Fill out course ID</ng-template>
+                <mat-form-field>
+                    <mat-label>ID</mat-label>
+                    <input matInput placeHolder="Course ID" formControlName="courseId" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step> -->
+        <mat-step [stepControl]="tripReasonGroup">
+          <form [formGroup]="tripReasonGroup">
+            <ng-template matStepLabel>Fill out trip reason</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Trip Reason</mat-label>
+                <mat-select matNativeControl formControlName="tripReason" name="car">
+                  <mat-option *ngFor="let reason of tripReasons" [value]="reason.value">
+                    {{reason.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="tripOriginGroup">
+          <form [formGroup]="tripOriginGroup">
+            <ng-template matStepLabel>Fill out trip origin country</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Origin Country</mat-label>
+                <mat-select matNativeControl formControlName="originCountry" name="originCountry">
+                  <mat-option *ngFor="let country of countries" [value]="country">
+                    {{country}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="tripDestinationGroup">
+            <form [formGroup]="tripDestinationGroup">
+              <ng-template matStepLabel>Fill out trip destination</ng-template>
+              <mat-form-field appearance="fill">
+                <mat-label>Destination Country</mat-label>
+                <mat-select matNativeControl formControlName="destinationCountry" name="destinationCountry">
+                  <mat-option *ngFor="let country of countries" [value]="country">
+                    {{country}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="tripDescriptionGroup">
+          <form [formGroup]="tripDescriptionGroup">
+            <ng-template matStepLabel>Fill out trip description</ng-template>
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <textarea rows="7" cols="10" matInput formControlName="tripDescription" placeholder="Trip Description">
+              </textarea>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="tripDepartureDateGroup">
+          <form [formGroup]="tripDepartureDateGroup">
+            <ng-template matStepLabel>Fill out trip departure date</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Departure Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="tripDepartureDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="tripArrivalDateGroup">
+            <form [formGroup]="tripArrivalDateGroup">
+              <ng-template matStepLabel>Fill out trip arrival date</ng-template>
+              <mat-form-field appearance="fill">
+                <mat-label>Arrival Date</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="tripArrivalDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+        
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            
+            <button *ngIf="isLinear" mat-button (click)="addTrip(); stepper.reset();" >Add Trip</button>
+            <button *ngIf="!isLinear" mat-button (click)="editTrip(); stepper.reset();">Edit Trip</button>
+
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+    </mat-vertical-stepper>
+  </div>

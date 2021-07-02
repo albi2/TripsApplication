@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .container__add_edit_trip {
+      width: 800px;
+    }
+}
+
+
+.trips__container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.container__trip{
+    width: 95%;
+}
+
+.trips__paginator {
+    align-self: right;
+    border-radius: 9px;
+    margin-right: 20px;
+    margin-left: auto;
+    overflow: hidden;
+}

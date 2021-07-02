@@ -1,0 +1,123 @@
+
+
+  input {
+    display: none;
+  }
+
+  .toggleWrapper {
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fe4551;
+    box-shadow: 0 20px 20px 0 rgba(#fe4551, 0.3);
+    
+    &:active {
+      width: 55px;
+      height: 55px;
+      box-shadow: 0 15px 15px 0 rgba(#fe4551, 0.5);
+      
+      .toggle {
+        height: 17px;
+        width: 17px;
+      }
+    }
+    
+    .toggle {
+      transition: all 0.2s ease-in-out;
+      height: 20px;
+      width: 20px;
+      background-color: transparent;
+      border: 10px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      
+      animation: red .7s linear forwards;
+    }
+  }
+
+  .background {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fef5f4;
+  }
+
+  input:checked {
+    & ~ .background {
+      background-color: #f9faf7;
+    }
+    & + .toggleWrapper {
+      background-color: #48e98a;
+      box-shadow: 0 20px 20px 0 rgba(#48e98a, 0.3);
+      
+      &:active {
+        box-shadow: 0 15px 15px 0 rgba(#48e98a, 0.5);
+      }
+
+      .toggle {
+        width: 0;
+        background-color: #fff;
+        border-color: transparent;
+        border-radius: 30px;
+        animation: green .7s linear forwards !important;
+      }
+    }
+  }
+
+
+
+@keyframes red {
+  0% {
+    height: 20px;
+    width: 0;
+    border-width: 5px;
+  }
+  55% {
+    height: 13px;
+    width: 17px;
+    border-width: 10px;
+  }
+  
+  70% {
+    height: 20px;
+    width: 10px;
+    border-width: 10px;
+  }
+  
+  85% {
+    height: 15px;
+    width: 15px;
+    border-width: 10px;
+  }
+  
+  100% {
+    height: 20px;
+    width: 20px;
+    border-width: 5px;
+  }
+}
+
+@keyframes green {
+  0% {
+    height: 20px;
+    width: 20px;
+    border-width: 10px;
+  }
+  25%, 55%, 85% {
+    height: 30px;
+    width: 5px;
+    border-width: 5px;
+  }
+  
+  40%, 70%, 100% {
+    height: 30px;
+    width: 0;
+    border-width: 5px;
+  }
+}
