@@ -1,27 +1,100 @@
-# Client
+# Trip Web App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.14.
+A trip web application built to help you track your trips.
 
-## Development server
+## How To Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Clone the repository
+- Install dependencies
+- Run the project
 
-## Code scaffolding
+```
+git clone https://github.com/albi2/TripsApplication.git
+npm install
+ng s -o
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## What's included
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Angular
+- Angular Material
+- rxjs
+- Backend connection
 
-## Running unit tests
+### Folder Structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+.
+├── app
+│   ├── app-routing.module.ts
+│   ├── app.component.html
+│   ├── app.component.scss
+│   ├── app.component.spec.ts
+│   ├── app.component.ts
+│   ├── app.module.ts
+│   ├── components
+│   │   ├── add-edit-trip
+│   │   ├── admin-user-details
+│   │   ├── my-trips
+│   │   ├── panels
+│   │   ├── sidebar
+│   │   ├── sign-in-up
+│   │   ├── signup-dialog
+│   │   └── users
+│   ├── guards
+│   │   ├── AdminGuard.ts
+│   │   └── GeneralUserGuard.ts
+│   ├── interceptors
+│   │   └── web-request.interceptor.ts
+│   ├── models
+│   │   ├── JwtResponse.ts
+│   │   ├── LoginRequest.ts
+│   │   ├── PagedResponse.ts
+│   │   ├── RefreshTokenResponse.ts
+│   │   ├── Trip.ts
+│   │   ├── User.ts
+│   │   └── UserCreationDTO.ts
+│   ├── pages
+│   │   ├── homepage
+│   │   └── my-profile
+│   ├── services
+│   │   ├── admin.service.spec.ts
+│   │   ├── admin.service.ts
+│   │   ├── auth.service.spec.ts
+│   │   ├── auth.service.ts
+│   │   ├── token.service.spec.ts
+│   │   ├── token.service.ts
+│   │   ├── trip.service.spec.ts
+│   │   └── trip.service.ts
+│   └── shared
+│       ├── searchbar
+│       ├── toggle
+│       └── trip-card
+├── assets
+│   ├── img
+│   │   └── perfil.jpg
+│   ├── js
+│   │   └── sidebar.js
+│   ├── scss
+│   │   └── _base.scss
+│   └── svg
+│       ├── sign_in.png
+│       ├── sign_in.svg
+│       └── sign_up.svg
+├── environments
+│   ├── environment.prod.ts
+│   └── environment.ts
+├── favicon.ico
+├── index.html
+├── main.ts
+├── polyfills.ts
+├── styles.scss
+└── test.ts
 
-## Running end-to-end tests
+## Demo
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![](./src/assets/demo/photo_1.png)
+![](./src/assets/demo/photo_2.png)
+![](./src/assets/demo/photo_3.png)
+![](./src/assets/demo/photo_4.png)
+![](./src/assets/demo/photo_5.png)

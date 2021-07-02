@@ -40,17 +40,19 @@ export class UsersComponent implements OnInit {
     const dialogRef = this.dialog.open(SignupDialogComponent);
 
     dialogRef.afterClosed().subscribe( (result: UserCreationDTO) => {
-        this.authService.createUser(result).subscribe((res: User) => {
-          if( this.dataSource.length < this.size){
-            this.dataSource.push(res);
-            this.dataSource = [...this.dataSource];
-            this.totalCount++;
-          }
-          this.openSnackbar("User has been added!", "Dismiss")
-        },
-        err => {
-          this.openSnackbar("Something went wrong! Please try again!", "Dismiss");
-        });
+        if(!!result) {
+          this.authService.createUser(result).subscribe((res: User) => {
+            if( this.dataSource.length < this.size){
+              this.dataSource.push(res);
+              this.dataSource = [...this.dataSource];
+              this.totalCount++;
+            }
+            this.openSnackbar("User has been added!", "Dismiss")
+          },
+          err => {
+            this.openSnackbar("Something went wrong! Please try again!", "Dismiss");
+          });
+        }
     });
   }
 
