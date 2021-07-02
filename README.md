@@ -24,6 +24,7 @@ ng s -o
 
 ### Folder Structure
 
+```
 .
 ├── app
 │   ├── app-routing.module.ts
@@ -90,7 +91,7 @@ ng s -o
 ├── polyfills.ts
 ├── styles.scss
 └── test.ts
-
+```
 ## Demo
 
 ![](./src/assets/demo/photo_1.png)
