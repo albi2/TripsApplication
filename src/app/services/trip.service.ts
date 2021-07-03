@@ -39,6 +39,12 @@ export class TripService {
     return this.http.get<Trip[]>(this.API_URI + "/all-trips-by-user/" +id,this.httpOptions);
   }
 
- 
+ public getTripById(id: number) {
+   return this.http.get<Trip>(this.API_URI + "/" + id, this.httpOptions);
+ }
+
+ public requestApproval(tripId: number) {
+   return this.http.post(this.API_URI+"/requestApproval", {id: tripId}, this.httpOptions);
+ }
 
 }

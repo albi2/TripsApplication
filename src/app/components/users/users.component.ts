@@ -42,10 +42,10 @@ export class UsersComponent implements OnInit {
     dialogRef.afterClosed().subscribe( (result: UserCreationDTO) => {
         if(!!result) {
           this.authService.createUser(result).subscribe((res: User) => {
+            this.totalCount++;
             if( this.dataSource.length < this.size){
               this.dataSource.push(res);
               this.dataSource = [...this.dataSource];
-              this.totalCount++;
             }
             this.openSnackbar("User has been added!", "Dismiss")
           },

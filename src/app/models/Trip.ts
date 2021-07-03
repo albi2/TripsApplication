@@ -7,5 +7,7 @@ export interface Trip {
     departureDate: Date,
     arrivalDate: Date,
     status?: string,
-    photo?: string | null
+    photo?: string | null,
+    fromCountryCode?: string | null,
+    toCountryCode?: string | null
 }

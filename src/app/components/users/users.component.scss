@@ -1,6 +1,21 @@
+* :not(.icon){
+  font-family: 'Montserrat', sans-serif;
+}
 .users__container{
     width: 100%;
     padding: 20px;
+
+    .mat-table {
+      overflow: hidden;
+      border-radius: 9px;
+    }
+
+    .trips__paginator {
+      align-self: right;
+      border-radius: 9px;
+      margin-left: auto;
+      overflow: hidden;
+  }
 
     .mat-table {
         width: 100%;
@@ -42,8 +57,13 @@
 .section__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 1rem;
+  }
+
+  .section__title {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #4d4d4d;
   }
   
   .section__link {
@@ -56,9 +76,10 @@
   }
   
   .section__button {
-    padding: 0.85rem 2rem;
+    padding: 0.4rem 0.4rem;
     margin: 0 0.6rem;
     background-color: var(--alabaster);
+    box-shadow: none;
     font-size: 0;
     border: none;
     cursor: pointer;
@@ -66,7 +87,8 @@
   }
   
   .section__button--painted {
-    background-color: var(--dune);
+    background: var(--first-color);
+
   }
   
   .section__button svg {
@@ -77,9 +99,7 @@
     fill: var(--alabaster);
   }
   
-  .section__button--painted:focus {
-    box-shadow: 0 0 0 3px var(--dune-rgba-5);
-  }
+ 
   
   @media (hover: hover) {
     .section__button:hover {
@@ -97,14 +117,12 @@
     }
   
     .section__button {
-      padding: 0.75rem 1.5rem;
+      padding: 0.4rem 0.4rem;
     }
   }
   
   @media (max-width: 1400px) {
-    .section__button {
-      padding: 0.65rem 1.25rem;
-    }
+ 
   
     .section__button svg {
       width: 1.8rem;
@@ -141,4 +159,15 @@
   .divider {
     margin-bottom: 15px;
     height: 2px;
+  }
+
+  .mat-cell {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #4f4f4f;
+  }
+
+  .mat-header-row {
+    background-color: #ededed;
+    text-transform: uppercase;
   }

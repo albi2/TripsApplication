@@ -7,7 +7,7 @@ import { SignInUpComponent } from './components/sign-in-up/sign-in-up.component'
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { WebRequestInterceptor} from './interceptors/web-request.interceptor';
+import { WebRequestInterceptor } from './interceptors/web-request.interceptor';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ToggleComponent } from './shared/toggle/toggle.component';
@@ -35,9 +35,16 @@ import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { SignupDialogComponent } from './components/signup-dialog/signup-dialog.component';
-import {MatDivider, MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule} from '@angular/material/divider';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { TripFlightsComponent } from './components/trip-flights/trip-flights.component';
+import { AddEditFlightComponent } from './components/add-edit-flight/add-edit-flight.component';
+import { FlightCardComponent } from './shared/flight-card/flight-card.component';
+import { NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker';
+import { NgxMatNativeDateAdapter } from '@angular-material-components/datetime-picker';
+import { MAT_DATE_LOCALE} from '@angular/material/core';
+import { NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
+import { WaitingApprovalComponent } from './shared/waiting-approval/waiting-approval.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +60,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     UsersComponent,
     AdminUserDetailsComponent,
     SearchbarComponent,
-    SignupDialogComponent
+    SignupDialogComponent,
+    TripFlightsComponent,
+    AddEditFlightComponent,
+    FlightCardComponent,
+    WaitingApprovalComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +89,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatDialogModule,
     MatDividerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule
+
   ],
   providers: [ 
     MatDatepickerModule,
@@ -88,8 +102,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
       useClass: WebRequestInterceptor,
       multi: true
     },
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'auto'}}
-
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'auto'}},
+    NgxMatNativeDateModule
   ],
   bootstrap: [AppComponent]
 })

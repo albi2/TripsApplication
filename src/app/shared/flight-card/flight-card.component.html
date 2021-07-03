@@ -1,0 +1,144 @@
+<div
+id="cardContainer"
+(click)="toggleActive()"
+[class.active]="isActive"
+>
+<div id="firstDisplay">
+  <div id="flightDetail">
+    <div
+      id="detailLabel"
+    >
+      From
+    </div>
+    {{trip.fromCountryCode}}
+  </div>
+  <div
+    id="flightDetail"
+  >
+    <div id="animContainer" class="firstAnim">
+      <div id="anim">
+        <div id="circle"></div>
+        <div id="circle"></div>
+        <div id="circle"></div>
+      </div>
+    </div>
+    <div id="animContainer" class="secondAnim">
+      <div id="anim">
+        <div id="circle"></div>
+        <div id="circle"></div>
+        <div id="circle"></div>
+      </div>
+    </div>
+    <img
+      src="https://github.com/pizza3/asset/blob/master/airplane2.png?raw=true"
+    />
+  </div>
+  <div id="flightDetail">
+    <div
+      id="detailLabel"
+    >
+      To
+    </div>
+    {{trip.toCountryCode}}
+  </div>
+</div>
+<div
+  id="first"
+  [class.active]="isActive"
+>
+  <div id="firstTop">
+    <img class="logo" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" />
+    <div id="timecontainer">
+      <div id="detailDate">
+        {{flight.fromCity}}
+        <div id="detailTime">{{flight.departureDate | date : 'H:mm'}}</div>
+        {{flight.departureDate | date : 'MMM d'}}
+      </div>
+      <img
+        class="airplane"
+        src="https://github.com/pizza3/asset/blob/master/airplane2.png?raw=true"
+      />
+      <div id="detailDate">
+        {{flight.toCity}}
+        <div id="detailTime">{{flight.arrivalDate | date : 'H:mm'}}</div>
+        {{flight.arrivalDate | date: 'MMM d'}}
+      </div>
+    </div>
+  </div>
+  <div id="firstBehind">
+    <div id="firstBehindDisplay">
+      <div id="firstBehindRow">
+        <div id="detail">
+          {{flight.departureDate | date: 'H:mm'}} - {{flight.arrivalDate | date: 'H:mm'}}
+          <div id="detailLabel">Flight Time</div>
+        </div>
+        <div id="detail">
+          No
+          <div id="detailLabel">Transfer</div>
+        </div>
+      </div>
+      <div id="firstBehindRow">
+        <div id="detail">
+          {{calculateDuration() | date : 'H:mm'}}
+          <div id="detailLabel">Duration</div>
+        </div>
+        <div id="detail">
+          8<div id="detailLabel">Gate</div>
+        </div>
+      </div>
+      <div id="firstBehindRow">
+        <div id="detail">
+          {{flight.boardingTime  | date : 'H:mm'}}
+          <div id="detailLabel">Boarding</div>
+        </div>
+        <div id="detail">
+          20A
+          <div id="detailLabel">Seat</div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="second"
+      [class.active]="isActive"
+    >
+      <div id="secondTop"></div>
+      <div id="secondBehind">
+        <div id="secondBehindDisplay">
+          <div id="price">
+            ${{flight.price | number: '1.2-5'}}
+            <div id="priceLabel">Price</div>
+          </div>
+          <div id="price">
+            {{flight.flightClass}}
+            <div id="priceLabel">Class</div>
+          </div>
+          <img
+            id="barCode"
+            src="https://github.com/pizza3/asset/blob/master/barcode.png?raw=true"
+          />
+        </div>
+        <div
+          id="third"
+          [class.active]="isActive"
+        >
+          <div id="thirdTop"></div>
+          <div id="secondBehindBottom">
+            <button
+              id="button"
+              class="delete"
+            >
+              Edit
+            </button>
+            <button
+              id="button"
+              class="delete"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

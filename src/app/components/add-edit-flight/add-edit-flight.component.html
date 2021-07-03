@@ -1,0 +1,141 @@
+<div class="add-flight">
+    <mat-vertical-stepper class="add-course" [linear]="isLinear" #stepper>
+        <!-- <mat-step [stepControl]="courseIdGroup">
+            <form [formGroup]="courseIdGroup">
+                <ng-template matStepLabel>Fill out course ID</ng-template>
+                <mat-form-field>
+                    <mat-label>ID</mat-label>
+                    <input matInput placeHolder="Course ID" formControlName="courseId" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step> -->
+
+        <mat-step [stepControl]="flightOriginGroup">
+          <form [formGroup]="flightOriginGroup">
+            <ng-template matStepLabel>Fill out flight origin city</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Origin City</mat-label>
+                <input matInput placeHolder="Origin City" formControlName="originCity" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="flightDestinationGroup">
+            <form [formGroup]="flightDestinationGroup">
+              <ng-template matStepLabel>Fill out flight destination</ng-template>
+              <mat-form-field appearance="fill">
+                <mat-label>Destination City</mat-label>
+                <input matInput placeHolder="Destination City" formControlName="destinationCity" required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="flightDepartureDateGroup">
+          <form [formGroup]="flightDepartureDateGroup">
+            <ng-template matStepLabel>Fill out flight departure date</ng-template>
+            <mat-form-field>
+                <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="flightDepartureDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                   [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                   >
+                </ngx-mat-datetime-picker>
+             </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="flightArrivalDateGroup">
+            <form [formGroup]="flightArrivalDateGroup">
+              <ng-template matStepLabel>Fill out flight arrival date</ng-template>
+              <mat-form-field>
+                <input matInput [ngxMatDatetimePicker]="picker2" placeholder="Choose a date" 
+                formControlName="flightArrivalDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                   [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond">
+                </ngx-mat-datetime-picker>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+        </mat-step>
+
+          <mat-step [stepControl]="flightBoardingGroup">
+            <form [formGroup]="flightBoardingGroup">
+              <ng-template matStepLabel>Fill out flight boarding time</ng-template>
+              <mat-form-field>
+                <input matInput [ngxMatDatetimePicker]="picker3" placeholder="Choose a date" 
+                formControlName="flightBoardingTime">
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker3 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                   [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                  >
+                </ngx-mat-datetime-picker>
+             </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <mat-step [stepControl]="flightPriceGroup">
+            <form [formGroup]="flightPriceGroup">
+              <ng-template matStepLabel>Fill out flight price</ng-template>
+                <mat-form-field>
+                  <mat-label>Flight price</mat-label>
+                  <input matInput placeHolder="Flight price" formControlName="flightPrice" required>
+                </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <mat-step [stepControl]="flightClassGroup">
+            <form [formGroup]="flightClassGroup">
+              <ng-template matStepLabel>Fill out flight Class</ng-template>
+              <mat-form-field appearance="fill">
+                  <mat-label>Flight class</mat-label>
+                  <mat-select matNativeControl formControlName="flightClass" name="car">
+                    <mat-option *ngFor="let class of flightClass" [value]="class.value">
+                      {{class.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+        
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button *ngIf="isLinear" mat-button (click)="addFlight(); stepper.reset();" >Add Flight</button>
+            <button *ngIf="!isLinear" mat-button >Edit Flight</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+    </mat-vertical-stepper>
+  </div>

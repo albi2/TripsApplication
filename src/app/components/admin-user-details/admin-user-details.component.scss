@@ -589,7 +589,7 @@ button {
   }
   
   .project__status {
-    width: 12%;
+    width: 20%;
   }
   
   .project__setting {
@@ -918,4 +918,8 @@ button {
     .profile-main__setting {
       max-width: 225px;
     }
+  }
+
+  * :not(.icon){
+    font-family: 'Montserrat', sans-serif;
   }

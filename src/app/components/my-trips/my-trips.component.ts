@@ -27,21 +27,35 @@ export class MyTripsComponent implements OnInit {
       (res: PagedResponse<Trip>) => {
         this.trips = res.content;
         this.totalCount = res.totalCount;
-        this.trips.forEach(trip => {
-          fetch("https://restcountries.eu/rest/v2/name/"+trip.toCountry).then(res => {
-           return res.json();
-          })
-          .then( data => {
-            if(data[0])
-              trip.photo = data[0].flag;
-          });
-        })
+        this.populateTrips();
       },
       err => {
         console.log(err);
         this.errMessage = "Could not load trips!";
       }
     )
+  }
+
+  private populateTrips() {
+    this.trips.forEach(trip => {
+      fetch("https://restcountries.eu/rest/v2/name/"+trip.toCountry).then(res => {
+       return res.json();
+      })
+      .then( data => {
+        if(data[0]) {
+          trip.photo = data[0].flag;
+          trip.toCountryCode = data[0].alpha3Code;
+        }
+        return fetch("https://restcountries.eu/rest/v2/name/" + trip.fromCountry);
+      })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        if(data[0])
+          trip.fromCountryCode = data[0].alpha3Code;
+      });
+    });
   }
 
   public deleteTrip(tripId: number) {
@@ -75,9 +89,9 @@ export class MyTripsComponent implements OnInit {
 
   private refreshTrips(page?: number, size?: number) {
     this.tripService.getTrips(page, size).subscribe((res: PagedResponse<Trip>) => {
-      console.log(res);
       this.trips = !!res.content ? res.content : [];
       this.totalCount = !!res.totalCount ? res.totalCount : 0;
+      this.populateTrips();
     },
     err => {
       console.log(err);

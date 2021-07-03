@@ -17,7 +17,6 @@ export class MyProfileComponent implements OnInit {
     const nav = document.getElementById('nav-bar');
     const bodypd = document.getElementById('body-pd');
     const headerpd = document.getElementById('header');
-    console.log(bodypd);
     
     nav.classList.toggle('show')
     // change icon

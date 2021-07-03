@@ -187,3 +187,7 @@ button:hover {
         padding: 0.5rem 1rem;
       }
 }
+
+* :not(.icon){
+    font-family: 'Montserrat', sans-serif;
+  }

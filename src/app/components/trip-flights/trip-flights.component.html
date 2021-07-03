@@ -1,0 +1,44 @@
+<div  *ngIf="!errMessage && isApproved()" class="container">
+    <div  class="flights__container">
+        <div  class="flights__container_nd">
+            <div *ngFor="let flight of flights" class="container__flight">
+                <app-flight-card [trip]="trip" [flight]="flight"></app-flight-card>
+                    <!-- <app-trip-card (tripDeleted)="deleteTrip($event)"
+                    (enableEdit)="activateEditTrip($event)" [trip]="trip"></app-trip-card> -->
+            </div>
+            
+        </div>
+        <div class="flights__paginator">
+            <mat-paginator
+            class="paginator"
+            [length]="totalCount"
+            [pageIndex]="page"
+            [pageSize]="size"
+            [pageSizeOptions]="[5,10,20]"
+            (page)="loadFlights($event)">
+            </mat-paginator>
+        </div>
+    </div>
+  
+    <div class="container__add_edit_flight">
+        <!-- <app-add-edit-trip (onTripAdded)="addTripToView($event)"
+        (onTripUpdated)="updateTrip($event)"></app-add-edit-trip> -->
+        <app-add-edit-flight (onFlightAdded)="addFlightToView($event)" [tripId]="tripId"></app-add-edit-flight>
+    </div>
+</div>
+
+<div *ngIf="isWaitingApproval() && !errMessage" class="waiting_text">
+    <app-waiting-approval></app-waiting-approval>
+</div>
+
+<div *ngIf="isCreated() && !errMessage" class="waiting_text">
+    <button mat-raised-button color="primary" class="request__button"
+    (click)="changeStatusToWaiting()">Request approval</button>
+
+</div>
+
+
+
+<div class="error" *ngIf="errMessage">
+    {{errMessage}}
+</div>

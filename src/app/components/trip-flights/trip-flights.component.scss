@@ -1,0 +1,50 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .container__add_edit_flight {
+      width: 800px;
+    }
+}
+
+.flights__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.flights__container_nd{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.waiting_text {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.request__button {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+}
+
+.container__flight{
+    width: 95%;
+}
+
+.flights__paginator {
+    align-self: right;
+    border-radius: 9px;
+    margin-right: 20px;
+    margin-left: auto;
+    overflow: hidden;
+}
