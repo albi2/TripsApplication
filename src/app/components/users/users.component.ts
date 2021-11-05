@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { User } from 'src/app/models/User';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { UserCreationDTO } from 'src/app/models/UserCreationDTO';
 import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChangeDetectorRef } from '@angular/core';
 import { PagedResponse } from 'src/app/models/PagedResponse';
 import { PageEvent } from '@angular/material/paginator';
-import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -78,7 +78,5 @@ export class UsersComponent implements OnInit {
       console.log(err);
     });
   }
-
- 
 }
 

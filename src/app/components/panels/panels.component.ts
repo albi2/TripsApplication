@@ -13,6 +13,7 @@ export class PanelsComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   toggle(n : boolean ) {
     this.toggleMode.emit(n);
   }

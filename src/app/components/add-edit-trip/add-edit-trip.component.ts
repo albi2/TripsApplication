@@ -1,22 +1,23 @@
-import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
-import { FormGroup,FormBuilder } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/Trip';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-add-edit-trip',
   templateUrl: './add-edit-trip.component.html',
-  styleUrls: ['./add-edit-trip.component.scss']
+  styleUrls: ['./add-edit-trip.component.scss'],
 })
 export class AddEditTripComponent implements OnInit {
   readonly tripReasons: Object[] = [
-    {value: 'MEETING', viewValue: 'Meeting' },
-    {value: 'TRAINING', viewValue: 'Training' },
-    {value: 'PROJECT', viewValue: 'Project' },
-    {value:'WORKSHOP', viewValue: 'Workshop' },
-    {value: 'EVENT', viewValue: 'Event'},
-    {value: 'OTHER', viewValue: 'Other' }
+    { value: 'MEETING', viewValue: 'Meeting' },
+    { value: 'TRAINING', viewValue: 'Training' },
+    { value: 'PROJECT', viewValue: 'Project' },
+    { value: 'WORKSHOP', viewValue: 'Workshop' },
+    { value: 'EVENT', viewValue: 'Event' },
+    { value: 'OTHER', viewValue: 'Other' }
   ];
 
   countries: string[] = [];
@@ -30,24 +31,22 @@ export class AddEditTripComponent implements OnInit {
   tripDepartureDateGroup: FormGroup;
   tripArrivalDateGroup: FormGroup;
 
-
   @Output() onTripAdded = new EventEmitter<Trip>();
   @Output() onTripUpdated = new EventEmitter<Trip>();
-
 
   constructor(private _formBuilder: FormBuilder, private _tripService: TripService,
     private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     fetch("https://restcountries.eu/rest/v2/all")
-    .then(response => {
-      return response.json()
-    })
-    .then(data => {
-      this.countries = data.map(country=> country.name);
-    });
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        this.countries = data.map(country => country.name);
+      });
 
-    this.tripReasonGroup= this._formBuilder.group({
+    this.tripReasonGroup = this._formBuilder.group({
       tripReason: ['', Validators.required]
     });
     this.tripOriginGroup = this._formBuilder.group({
@@ -75,14 +74,15 @@ export class AddEditTripComponent implements OnInit {
     );
   }
 
-  getTripFromFields(): Trip{
-    let tripReason= this.tripReasonGroup.get('tripReason').value;
+  private getTripFromFields(): Trip {
+    let tripReason = this.tripReasonGroup.get('tripReason').value;
     let tripOrigin = this.tripOriginGroup.get('originCountry').value;
-    let tripDestination = this.tripDestinationGroup.get('destinationCountry').value; 
+    let tripDestination = this.tripDestinationGroup.get('destinationCountry').value;
     let description = this.tripDescriptionGroup.get('tripDescription').value;
     let departureDate = this.tripDepartureDateGroup.get('tripDepartureDate').value.toISOString();
     let arrivalDate = this.tripArrivalDateGroup.get('tripArrivalDate').value.toISOString();
-    const trip = { 
+    
+    const trip = {
       reason: tripReason,
       description: description,
       fromCountry: tripOrigin,
@@ -93,17 +93,17 @@ export class AddEditTripComponent implements OnInit {
 
     return trip;
   }
- 
- addTrip() {
+
+  addTrip() {
     const trip = this.getTripFromFields();
 
-    this._tripService.postAddTrip(trip).subscribe( (trip: Trip) => {
+    this._tripService.postAddTrip(trip).subscribe((trip: Trip) => {
       this.onTripAdded.emit(trip);
-      this.openSnackbar("Trip created","Dismiss");
+      this.openSnackbar("Trip created", "Dismiss");
     },
-    err => {
-      console.error(err);
-    });
+      err => {
+        console.log(err);
+      });
   }
 
   public enableEditTrip(trip: Trip) {
@@ -136,15 +136,15 @@ export class AddEditTripComponent implements OnInit {
     this._tripService.postEditTrip(trip).subscribe((res: Trip) => {
       this.onTripUpdated.emit(res);
       this.isLinear = true;
-      this.openSnackbar("Trip updated","Dismiss");
+      this.openSnackbar("Trip updated", "Dismiss");
     },
     err => {
       console.log(err);
     });
   }
 
-  public openSnackbar(message: string, action: string) {
-    this._snackBar.open(message,action, {
+  private openSnackbar(message: string, action: string) {
+    this._snackBar.open(message, action, {
       duration: 3000
     });
   }

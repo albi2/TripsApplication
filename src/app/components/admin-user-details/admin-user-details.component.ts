@@ -33,5 +33,4 @@ export class AdminUserDetailsComponent implements OnInit {
     newTrips[updatedTripIndex] = updatedTrip;
     this.trips = newTrips;
   }
-
 }

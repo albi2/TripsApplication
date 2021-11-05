@@ -12,18 +12,16 @@ export class AdminService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  } 
+  }
 
   constructor(private http: HttpClient) { }
 
   public getUsers(page?: number, size?: number) {
-    const suffix: string = (page !== undefined && size !== undefined) ? "?page=" + page + "&size=" + size: "";
+    const suffix: string = (page !== undefined && size !== undefined) ? "?page=" + page + "&size=" + size : "";
     return this.http.get<PagedResponse<User>>(this.API_URI + "/users" + suffix);
   }
 
-  public udateTripStatus(tripId: number, newStatus: string) {
-    return this.http.post<Trip>(this.API_URI + "/update-trip-status", {id: tripId, status: newStatus}, this.httpOptions);
+  public updateTripStatus(tripId: number, newStatus: string) {
+    return this.http.post<Trip>(this.API_URI + "/update-trip-status", { id: tripId, status: newStatus }, this.httpOptions);
   }
-
- 
 }

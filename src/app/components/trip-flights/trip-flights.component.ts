@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from 'src/app/models/Flight';
 import { FlightService } from 'src/app/services/flight.service';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PagedResponse } from 'src/app/models/PagedResponse';
 import { Trip } from 'src/app/models/Trip';
 import { TripService } from 'src/app/services/trip.service';
@@ -65,7 +65,7 @@ export class TripFlightsComponent implements OnInit {
   }
 
   loadFlights(event: PageEvent) {
-    this.size =event.pageSize;
+    this.size = event.pageSize;
     this.page = event.pageIndex;
 
     this.refreshFlights(this.page, this.size);
@@ -85,7 +85,6 @@ export class TripFlightsComponent implements OnInit {
   }
 
   addFlightToView(newFlight: Flight) {
-    console.log(newFlight);
     if(this.flights.length < this.size) {
       this.flights.push(newFlight);
       this.flights = [...this.flights];

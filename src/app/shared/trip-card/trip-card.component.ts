@@ -3,20 +3,18 @@ import { Trip } from 'src/app/models/Trip';
 import { TripService } from 'src/app/services/trip.service';
 import { EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-trip-card',
   templateUrl: './trip-card.component.html',
   styleUrls: ['./trip-card.component.scss']
 })
-export class TripCardComponent implements OnInit {
+export class TripCardComponent{
   @Input() trip: Trip = null;
   @Output() tripDeleted  = new EventEmitter<number>();
   @Output() enableEdit = new EventEmitter<Trip>();
 
   constructor(private tripService: TripService, private _snackBar: MatSnackBar) { }
-
-  ngOnInit(): void {
-  }
 
   deleteTrip(tripId: number) {
     this.tripService.postDeleteTrip(tripId)

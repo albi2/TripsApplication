@@ -7,15 +7,12 @@ import { Trip } from 'src/app/models/Trip';
   templateUrl: './flight-card.component.html',
   styleUrls: ['./flight-card.component.scss']
 })
-export class FlightCardComponent implements OnInit {
+export class FlightCardComponent{
   isActive: boolean = false;
   @Input() flight: Flight;
   @Input() trip: Trip;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   toggleActive() {
     this.isActive = !this.isActive;

@@ -17,7 +17,7 @@ export class TokenService {
 
   public saveAccessToken(token: string) {
     this.removeAccessToken();
-    window.sessionStorage.setItem(this.ACCESS_TOKEN_KEY,token);
+    window.sessionStorage.setItem(this.ACCESS_TOKEN_KEY, token);
   }
 
   public removeAccessToken() {
@@ -30,7 +30,7 @@ export class TokenService {
 
   public saveRefreshToken(token: string) {
     this.removeRefreshToken();
-    window.sessionStorage.setItem(this.REFRESH_TOKEN_KEY,token);
+    window.sessionStorage.setItem(this.REFRESH_TOKEN_KEY, token);
   }
 
   public removeRefreshToken() {
@@ -43,7 +43,7 @@ export class TokenService {
 
   public setUser(user: User) {
     window.sessionStorage.removeItem(this.USER_KEY);
-    window.sessionStorage.setItem(this.USER_KEY,JSON.stringify(user));
+    window.sessionStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
 
   public getUser() {

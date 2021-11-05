@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
+export default class HomepageComponent implements OnInit {
 
   signupMode: boolean = false;
   constructor() { }
@@ -18,7 +18,6 @@ export class HomepageComponent implements OnInit {
   }
 
   scroll($element: any) {
-    console.log($element);
     $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 }

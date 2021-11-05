@@ -72,14 +72,15 @@ export class AddEditFlightComponent implements OnInit {
     });
   }
 
-  getflightFromFields(): Flight{
+  private getflightFromFields(): Flight{
     let flightClass= this.flightClassGroup.get('flightClass').value;
     let flightOrigin = this.flightOriginGroup.get('originCity').value;
     let flightDestination = this.flightDestinationGroup.get('destinationCity').value; 
-    let boardingTime = this.flightBoardingGroup.get('flightBoardingTime').value;
+    let boardingTime = this.flightBoardingGroup.get('flightBoardingTime').value.toISOString();
     let departureDate = this.flightDepartureDateGroup.get('flightDepartureDate').value.toISOString();
     let arrivalDate = this.flightArrivalDateGroup.get('flightArrivalDate').value.toISOString();
     let price = Number(this.flightPriceGroup.get("flightPrice").value);
+    
     const flight = { 
       fromCity: flightOrigin,
       toCity: flightDestination,
@@ -99,7 +100,7 @@ export class AddEditFlightComponent implements OnInit {
  
  addFlight() {
     const flight = this.getflightFromFields();
-    console.log(flight);
+
     this.flightService.postAddFlight(this.tripId, flight).subscribe( (flight: Flight) => {
       this.onFlightAdded.emit(flight);
       this.openSnackbar("Flight created","Dismiss");

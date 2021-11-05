@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Trip } from '../models/Trip';
-import { HttpHeaders } from '@angular/common/http';
 import { PagedResponse } from '../models/PagedResponse';
 
 @Injectable({
@@ -18,7 +17,6 @@ export class TripService {
   constructor(private http: HttpClient) { }
 
   public getTrips(page?: number, size?: number){
-    console.log(page, size);
     const suffix: string = (page !== undefined && size !== undefined) ? "?size="+ size + "&page=" + page : "";
     return this.http.get<PagedResponse<Trip>>(this.API_URI+ suffix, this.httpOptions);
   }
@@ -31,8 +29,8 @@ export class TripService {
     return this.http.post<Trip>(this.API_URI + "/add-trip", trip, this.httpOptions);
   }
 
-  public postEditTrip(trip: Trip) {
-    return this.http.post<Trip>(this.API_URI + "/update-trip", trip,this.httpOptions);
+  public postEditTrip(updatedTrip: Trip) {
+    return this.http.post<Trip>(this.API_URI + "/update-trip", updatedTrip,this.httpOptions);
   }
 
   public getTripsByUserId(id: number) {

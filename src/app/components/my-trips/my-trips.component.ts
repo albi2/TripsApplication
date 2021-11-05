@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { PagedResponse } from 'src/app/models/PagedResponse';
 import { Trip } from 'src/app/models/Trip';
 import { TripService } from 'src/app/services/trip.service';
+import { AddEditTripStubComponent } from 'src/test/stubs/add-edit-trip-stub.component';
 import { AddEditTripComponent } from '../add-edit-trip/add-edit-trip.component';
 
 @Component({
@@ -17,7 +18,7 @@ export class MyTripsComponent implements OnInit {
   size: number = 10;
   totalCount: number = 0;
 
-  @ViewChild(AddEditTripComponent, {static: false}) private formComponent: AddEditTripComponent;
+  @ViewChild(AddEditTripComponent, {static: false}) public formComponent: AddEditTripComponent;
 
   constructor(private tripService: TripService) { }
 
@@ -59,7 +60,6 @@ export class MyTripsComponent implements OnInit {
   }
 
   public deleteTrip(tripId: number) {
-    console.log(tripId);
     this.trips = this.trips.filter(trip => trip.id != tripId);
   }
 
@@ -97,6 +97,4 @@ export class MyTripsComponent implements OnInit {
       console.log(err);
     });
   }
-
- 
 }

@@ -10,11 +10,11 @@ import { UserCreationDTO } from 'src/app/models/UserCreationDTO';
 })
 export class SignupDialogComponent implements OnInit {
   signUpGroup = this._fb.group({
-    username: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
-  }
-  )
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    }
+  );
 
   constructor(public dialogRef: MatDialogRef<SignupDialogComponent>,
     private _fb: FormBuilder) { }

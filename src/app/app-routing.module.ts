@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomepageComponent } from './pages/homepage/homepage.component';
+import  HomepageComponent  from './pages/homepage/homepage.component';
 import { GeneralUserGuard } from './guards/GeneralUserGuard';
 import { AdminGuard } from './guards/AdminGuard';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
